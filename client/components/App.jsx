@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import List from './List';
 
 class App extends React.Component {
   constructor() {
@@ -9,6 +10,7 @@ class App extends React.Component {
       vehicle_type: 'Consumer',
       data: [],
       metadata: {},
+      per_page: 30,
     };
 
     this.getVehicleData = this.getVehicleData.bind(this);
@@ -19,8 +21,8 @@ class App extends React.Component {
   }
 
   getVehicleData() {
-    const { location, vehicle_type } = this.state;
-    axios.post('https://app.joindrover.com/api/web/vehicles', { location, vehicle_type })
+    const { location, vehicle_type, per_page } = this.state;
+    axios.post('https://app.joindrover.com/api/web/vehicles', { location, vehicle_type, per_page })
       .then((response) => {
         const { data, metadata } = response.data;
         this.setState({ data, metadata });
@@ -29,8 +31,12 @@ class App extends React.Component {
   }
 
   render() {
+    const { data } = this.state;
     return (
-      <div>test</div>
+      <div>
+        <List cars={data} />
+      </div>
+
     );
   }
 }

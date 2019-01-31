@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: '',
+      location: 'London, Uk',
       vehicle_make: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -20,7 +19,7 @@ class Search extends React.Component {
   render() {
     const { data, search } = this.props;
     const { location, vehicle_make } = this.state;
-    
+ 
     return (
       <form>
         Car Make
@@ -36,10 +35,5 @@ class Search extends React.Component {
     );
   }
 }
-
-Search.propTypes = {
-  data: PropTypes.instanceOf(Object),
-  search: PropTypes.func,
-};
 
 export default Search;

@@ -12,4 +12,8 @@ List.propTypes = {
   cars: PropTypes.instanceOf(Array),
 };
 
+List.defaultProps = {
+  cars: [],
+};
+
 export default List;

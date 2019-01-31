@@ -33,4 +33,8 @@ VehicleCard.propTypes = {
   data: PropTypes.instanceOf(Object),
 };
 
+VehicleCard.defaultProps = {
+  data: {},
+};
+
 export default VehicleCard;
